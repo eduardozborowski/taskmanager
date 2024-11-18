@@ -29,4 +29,8 @@ class TarefaViewModel(application: Application) : AndroidViewModel(application) 
     fun delete(tarefa: Tarefa) = viewModelScope.launch {
         repository.delete(tarefa)
     }
+
+    fun getTarefaById(id: Int): LiveData<Tarefa> {
+        return repository.getTarefaById(id)
+    }
 }

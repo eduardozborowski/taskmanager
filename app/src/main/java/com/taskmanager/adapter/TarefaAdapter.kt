@@ -1,9 +1,11 @@
 package com.taskmanager.adapter
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.taskmanager.databinding.ItemTarefaBinding
+import com.taskmanager.model.Prioridade
 import com.taskmanager.model.Tarefa
 import java.text.SimpleDateFormat
 import java.util.*
@@ -38,6 +40,17 @@ class TarefaAdapter(private val listener: OnItemClickListener) : RecyclerView.Ad
             binding.tvTitulo.text = tarefa.titulo
             binding.tvDescricao.text = tarefa.descricao
             binding.tvDataLimite.text = tarefa.dataLimite?.let { dateFormat.format(it) } ?: "Sem data limite"
+
+            // Exibir a prioridade
+            binding.tvPrioridade.text = tarefa.prioridade.name.capitalize()
+
+            // Alterar a cor com base na prioridade
+            val corPrioridade = when (tarefa.prioridade) {
+                Prioridade.ALTA -> Color.RED
+                Prioridade.MEDIA -> Color.YELLOW
+                Prioridade.BAIXA -> Color.GREEN
+            }
+            binding.tvPrioridade.setTextColor(corPrioridade)
 
             // Reatribuir o listener
             binding.cbConcluida.setOnCheckedChangeListener { _, isChecked ->

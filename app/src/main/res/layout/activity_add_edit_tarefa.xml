@@ -11,6 +11,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <!-- Campo de Título -->
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -22,6 +23,7 @@
                     android:layout_height="wrap_content" />
             </com.google.android.material.textfield.TextInputLayout>
 
+            <!-- Campo de Descrição -->
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -34,6 +36,23 @@
                     android:layout_height="wrap_content" />
             </com.google.android.material.textfield.TextInputLayout>
 
+            <!-- Label para o Spinner de Prioridade -->
+            <TextView
+                android:id="@+id/tvPrioridadeLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Prioridade"
+                android:textSize="16sp"
+                android:layout_marginTop="16dp" />
+
+            <!-- Spinner para Seleção de Prioridade -->
+            <Spinner
+                android:id="@+id/spinnerPrioridade"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp" />
+
+            <!-- Botão para Selecionar Data Limite -->
             <Button
                 android:id="@+id/btnDataLimite"
                 android:layout_width="wrap_content"
@@ -41,6 +60,7 @@
                 android:text="Selecionar Data Limite"
                 android:layout_marginTop="16dp"/>
 
+            <!-- Botão para Salvar a Tarefa -->
             <Button
                 android:id="@+id/btnSalvar"
                 android:layout_width="match_parent"

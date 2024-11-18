@@ -19,4 +19,8 @@ class TarefaRepository(private val tarefaDao: TarefaDao) {
     suspend fun delete(tarefa: Tarefa) {
         tarefaDao.delete(tarefa)
     }
+
+    fun getTarefaById(id: Int): LiveData<Tarefa> {
+        return tarefaDao.getTarefaById(id)
+    }
 }

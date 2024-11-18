@@ -16,7 +16,13 @@ interface TarefaDao {
     @Delete
     suspend fun delete(tarefa: Tarefa): Int
 
-    @Query("SELECT * FROM tarefa_table ORDER BY dataLimite ASC")
+    @Query("SELECT * FROM tarefa_table ORDER BY " +
+            "CASE WHEN prioridade = 'ALTA' THEN 1 " +
+            "WHEN prioridade = 'MEDIA' THEN 2 " +
+            "WHEN prioridade = 'BAIXA' THEN 3 END, " +
+            "dataLimite ASC")
     fun getAllTarefas(): LiveData<List<Tarefa>>
-}
 
+    @Query("SELECT * FROM tarefa_table WHERE id = :id")
+    fun getTarefaById(id: Int): LiveData<Tarefa>
+}
